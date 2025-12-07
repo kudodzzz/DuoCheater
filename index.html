@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="//www.duolingopro.net/static/favicons/duo/128/light/primary.png" type="image/png">
+    <title>DuoCheater</title>
+    <style>
+        @font-face {
+            font-family: "DuoCheater Rounded";
+            src: url("https://www.duolingopro.net/static/fonts/V7R100DB1/Duolingo-PRO-Rounded-Regular.woff2") format("woff2");
+            font-weight: 400;
+        }
+
+        :root {
+            --primary-shade: rgba(255, 255, 255, 0.5);
+            --primary-wallpaper: url(https://www.duolingopro.net/static/home_wallpaper_1_light.avif);
+
+            --primary-background: rgba(255, 255, 255, 1);
+            --primary-border: rgba(0, 0, 0, 0.1);
+
+            --primary-text: rgba(0, 0, 0, 1);
+            --secondary-text: rgba(0, 0, 0, 0.8);
+            --tertiary-text: rgba(0, 0, 0, 0.5);
+            --quaternary-text: rgba(0, 0, 0, 0.4);
+            --quinary-text: rgba(0, 0, 0, 0.2);
+            --error-text: rgba(255, 45, 85, 0.5);
+
+            --zero-button-background: rgba(0, 0, 0, 1);
+            --primary-button-background: rgba(0, 122, 255, 1);
+            --secondary-button-background: rgba(255, 255, 255, 0.8);
+
+            --primary-button-border: rgba(255, 255, 255, 0.5);
+            --secondary-button-border: rgba(0, 0, 0, 0.1);
+
+            --primary-button-text: rgba(255, 255, 255, 1);
+            --secondary-button-text: rgba(0, 0, 0, 0.5);
+
+            --tertiary-color: rgba(255, 255, 255, 1);
+            --quaternary-color: rgba(255, 255, 255, 1);
+
+            --input-background: rgba(0, 122, 255, 0.05);
+            --input-border: rgba(0, 122, 255, 0.1);
+
+            --usertag-blue: rgba(0, 122, 255, 0.5);
+
+            --red: #ff3b30;
+            --orange: #ff9500;
+            --yellow: #ffcc00;
+            --green: #34c759;
+            --teal: #00c7be;
+            --cyan: #5ac8fa;
+            --blue: #007aff;
+            --indigo: #5856d6;
+            --purple: #af52de;
+            --pink: #ff2d55;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-shade: rgba(0, 0, 0, 0.25);
+                --primary-wallpaper: url(https://www.duolingopro.net/static/home_wallpaper_1_dark.avif);
+
+                --primary-background: rgba(0, 0, 0, 1);
+                --primary-border: rgba(255, 255, 255, 0.2);
+
+                --primary-text: rgba(255, 255, 255, 1);
+                --secondary-text: rgba(255, 255, 255, 0.8);
+                --tertiary-text: rgba(255, 255, 255, 0.5);
+                --quaternary-text: rgba(255, 255, 255, 0.4);
+                --quinary-text: rgba(255, 255, 255, 0.2);
+                --error-text: rgba(255, 45, 85, 0.8);
+
+                --zero-button-background: rgba(255, 255, 255, 1);
+                --primary-button-background: #0a84ff;
+                --secondary-button-background: rgba(0, 0, 0, 0.8);
+
+                --primary-button-border: rgba(0, 0, 0, 0.5);
+                --secondary-button-border: rgba(255, 255, 255, 0.2);
+                --primary-button-text: rgba(255, 255, 255, 1);
+                --secondary-button-text: rgba(255, 255, 255, 0.8);
+
+                --input-background: rgba(0, 122, 255, 0.1);
+                --input-border: rgba(0, 122, 255, 0.2);
+
+                --usertag-blue: rgba(0, 122, 255, 0.8);
+
+                --red: #ff453a;
+                --orange: #ff9f0a;
+                --yellow: #ffd60a;
+                --green: #30d158;
+                --teal: #63e6e2;
+                --cyan: #64d2ff;
+                --blue: #0a84ff;
+                --indigo: #5e5ce6;
+                --purple: #bf5af2;
+                --pink: #ff375f;
+            }
+        }
+
+        .magnetic_hover_1 {
+            transition: filter 0.4s cubic-bezier(0.16, 1, 0.32, 1),
+                transform 0.4s cubic-bezier(0.16, 1, 0.32, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.32, 1);
+            cursor: pointer;
+
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0);
+        }
+        .magnetic_hover_1:hover {
+            filter: brightness(0.95);
+            transform: scale(1.05);
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.1);
+        }
+        .magnetic_hover_1:active {
+            filter: brightness(0.95);
+            transform: scale(0.95);
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0);
+        }
+
+        .wallpaper {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            background: var(--primary-wallpaper) var(--primary-background) 50% / cover no-repeat;
+
+            transition: background 0.5s;
+        }
+
+        p {
+            margin: 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        h2 {
+            margin: 0;
+        }
+        h3 {
+            margin: 0;
+        }
+        h4 {
+            margin: 0;
+        }
+        h5 {
+            margin: 0;
+        }
+        h6 {
+            margin: 0;
+        }
+
+        .text_left {
+            font-family: "DuoCheater Rounded";
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0;
+            color: var(--primary-text);
+
+            transition: color 0.5s;
+        }
+
+        .text_center {
+            font-family: "DuoCheater Rounded";
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0;
+            color: var(--primary-text);
+            text-align: center;
+
+            transition: color 0.5s;
+        }
+
+        .text_center_stretch {
+            font-family: "DuoCheater Rounded";
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0;
+            color: var(--primary-text);
+            text-align: center;
+            align-self: stretch;
+
+            transition: color 0.5s;
+        }
+
+        .text_left_stretch {
+            font-family: "DuoCheater Rounded";
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0;
+            color: var(--primary-text);
+            align-self: stretch;
+
+            transition: color 0.5s;
+        }
+
+        .title_left_stretch {
+            font-family: "DuoCheater Rounded";
+            font-size: 24px;
+            font-weight: 400;
+            margin: 0;
+            color: var(--primary-text);
+            align-self: stretch;
+
+            transition: color 0.5s;
+        }
+
+        .title_center_stretch {
+            font-family: "DuoCheater Rounded";
+            font-size: 32px;
+            font-weight: 400;
+            margin: 0;
+            color: var(--primary-text);
+            text-align: center;
+            align-self: stretch;
+
+            transition: color 0.5s;
+        }
+
+        .button_stretch {
+            display: flex;
+            height: 48px;
+            padding: 0px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 32px;
+            user-select: none;
+            justify-content: space-between;
+            box-sizing: border-box;
+
+            transition: background 0.5s, border 0.5s, outline 0.5s, color 0.5s, fill 0.5s,
+                filter 0.4s cubic-bezier(0.16, 1, 0.32, 1),
+                transform 0.4s cubic-bezier(0.16, 1, 0.32, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.32, 1),
+                opacity 0.4s cubic-bezier(0.16, 1, 0.32, 1);
+        }
+
+        .disabled_button {
+            opacity: 0.5;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .primary_button {
+            background: var(--primary-button-background);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        .primary_button * {
+            color: var(--primary-button-text);
+            fill: var(--primary-button-text);
+
+            transition: color 0.5s, fill 0.5s;
+        }
+
+        .button_secondary {
+            background: var(--secondary-button-background);
+            border: 2px solid rgba(0, 122, 255, 0.50);
+        }
+        .button_secondary * {
+            transition: color 0.5s, fill 0.5s;
+        }
+
+        .hstack_center_8 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .vstack_center_4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .vstack_center_16 {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="wallpaper"></div>
+        <svg class="" id="icon" width="200" height="170" viewBox="0 0 200 170" fill="none" style="position: fixed; top: calc(50% - 85px); right: calc(50% - 100px);" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_b_1167_112)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M44.2338 14.3143C43.5498 16.4212 43.2008 18.7523 43.2642 21.2997C43.2642 21.2997 42.4357 29.9125 40.9398 42.0567L13.3568 24.1248C9.05958 21.3311 3.28329 23.4946 1.94976 28.3974C-4.46165 51.9522 5.2559 77.4135 26.4361 91.183C29.4025 93.1115 32.4905 94.7435 35.6603 96.0823C37.3491 112.884 44.583 125.205 55.1471 133.652L56.2483 141.62C56.9374 146.607 61.5383 150.091 66.5247 149.402C69.9129 148.934 72.6073 146.659 73.7703 143.685C76.118 144.495 78.5329 145.196 81.0032 145.79C111.817 153.206 135.564 139.065 149.728 121.384C151.165 121.191 152.603 120.945 154.041 120.644C178.835 115.452 197.256 95.2401 199.953 70.992C200.515 65.9458 195.932 61.8497 190.901 62.9034L168.925 67.5051C169.72 61.4149 170.037 57.1495 170.037 56.6777C171.121 37.1343 165.998 16.0234 148.084 7.90625C139.926 4.21001 131.521 2.77816 124.965 5.13682C117.77 7.72547 113.684 9.84443 110.6 11.4434C109.329 12.1023 108.229 12.673 107.151 13.1518C105.127 14.051 102.854 14.2711 100.696 13.7595C100.019 13.599 99.3322 13.4031 98.6318 13.1751C94.8102 11.9116 90.6036 9.69115 85.5466 7.02183C82.815 5.57994 79.8352 4.00706 76.5339 2.38328C65.0391 -3.27078 48.2258 1.3041 44.2338 14.3143ZM141.672 154.736C140.276 149.9 135.223 147.111 130.387 148.507L117.857 152.123C113.021 153.519 110.233 158.572 111.629 163.408C113.026 168.244 118.078 171.033 122.914 169.637L135.444 166.021C140.28 164.625 143.069 159.572 141.672 154.736Z" fill="white" fill-opacity="0.8"/>
+            </g>
+            <defs>
+                <filter id="filter0_b_1167_112" x="-16" y="-16" width="232" height="201.997" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="8"/>
+                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1167_112"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1167_112" result="shape"/>
+                </filter>
+            </defs>
+        </svg>
+        <p class="text_center_stretch" style="color: var(--quaternary-text); position: fixed; top: 16px; left: 16px; opacity: 0;" id="version">4b1aef0
+</p>
+        <div class="vstack_center_16" style="position: fixed; bottom: 16px; right: 50%; right: calc(50% - 256px); width: 512px;">
+            <div class="vstack_center_4">
+                <h1 class="title_center_stretch" style="color: var(--secondary-text);">DuoCheater</h1>
+                <p class="text_center_stretch" style="color: var(--quaternary-text);">The next-generation cheat tools for Duolingo. Available for all.</p>
+            </div>
+                <div class="button_stretch primary_button magnetic_hover_1" id="download" style="width: 160px;">
+                    <p class="text_left">Download</p>
+                    <svg width="12" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.8125 13.1797H5.79688C5.625 13.1484 5.46875 13.0547 5.34375 12.9219L0.351562 7.97656C0.164062 7.78906 0.078125 7.57812 0.078125 7.35156C0.078125 6.86719 0.421875 6.51562 0.898438 6.51562C1.14062 6.51562 1.35156 6.60938 1.51562 6.77344L3.11719 8.35156L5.20312 10.6484L5.125 9V1.72656C5.125 1.21094 5.47656 0.859375 5.98438 0.859375C6.48438 0.859375 6.83594 1.21094 6.83594 1.72656V9L6.75781 10.6406L8.84375 8.35156L10.4531 6.77344C10.6094 6.61719 10.8281 6.51562 11.0703 6.51562C11.5391 6.51562 11.8906 6.86719 11.8906 7.35156C11.8906 7.57812 11.7969 7.78906 11.6094 7.97656L6.61719 12.9219C6.49219 13.0547 6.33594 13.1484 6.16406 13.1797H11.1328C11.6172 13.1797 11.9688 13.5391 11.9688 14.0234C11.9688 14.5078 11.6172 14.8672 11.1328 14.8672H0.8125C0.335938 14.8672 -0.0078125 14.5078 -0.0078125 14.0234C-0.0078125 13.5391 0.335938 13.1797 0.8125 13.1797Z"/>
+                    </svg>
+                </div>
+            </div>
+            <p class="text_center_stretch" style="color: var(--quinary-text);">Copyright (c) 2025 <a href="//github.com/kudodzzz">kudodzzz</a>, <a href="//dukee.ct.ws">dukeehub</a></p>
+        </div>
+    </div>
+    <script>
+        function addMagneticHoverEventListeners(element) {
+            let mouseDown = false;
+            element.addEventListener("mousemove", (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                if (mouseDown) {
+                    element.style.transform = `translate(${x * 0.1}px, ${
+                        y * 0.1
+                    }px) scale(0.95)`;
+                } else {
+                    element.style.transform = `translate(${x * 0.1}px, ${
+                        y * 0.1
+                    }px) scale(1.05)`;
+                }
+            });
+            element.addEventListener("mouseleave", () => {
+                element.style.transform = "translate(0, 0) scale(1)";
+                mouseDown = false;
+            });
+            element.addEventListener("mousedown", (e) => {
+                mouseDown = true;
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                if (mouseDown) {
+                    element.style.transform = `translate(${x * 0.1}px, ${
+                        y * 0.1
+                    }px) scale(0.95)`;
+                } else {
+                    element.style.transform = `translate(${x * 0.1}px, ${
+                        y * 0.1
+                    }px) scale(1.05)`;
+                }
+            });
+            element.addEventListener("mouseup", (e) => {
+                mouseDown = false;
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                if (mouseDown) {
+                    element.style.transform = `translate(${x * 0.1}px, ${
+                        y * 0.1
+                    }px) scale(0.95)`;
+                } else {
+                    element.style.transform = `translate(${x * 0.1}px, ${
+                        y * 0.1
+                    }px) scale(1.05)`;
+                }
+            });
+        }
+
+        let magnetic_hover_1 = document.querySelectorAll(".magnetic_hover_1");
+        magnetic_hover_1.forEach(addMagneticHoverEventListeners);
+
+        let observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes) {
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.nodeType === 1 && node.matches(".magnetic_hover_1")) {
+                            addMagneticHoverEventListeners(node);
+                        }
+                    });
+                }
+            });
+        });
+
+        document.querySelector("#download").addEventListener("click", function () {
+            window.open('https://raw.githubusercontent.com/kudodzzz/DuoCheater/refs/heads/main/DuoCheater.user.js', '_self');
+        });
+
+        const versionElement = document.getElementById('version');
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'v') {
+                versionElement.style.opacity = '1';
+            }
+        });
+
+        document.addEventListener('keyup', function(event) {
+            if (event.key === 'v') {
+                //versionElement.style.opacity = '0';
+            }
+        });
+
+        let tapCount = 0;
+        let tapTimeout;
+
+        function handleTripleTap() {
+            tapCount++;
+
+            clearTimeout(tapTimeout);
+
+            tapTimeout = setTimeout(() => {
+                tapCount = 0;
+            }, 600);
+
+            if (tapCount >= 2) {
+                versionElement.style.opacity = '1';
+                tapCount = 0;
+            }
+        }
+
+        const iconElement = document.getElementById('icon');
+        iconElement.addEventListener('click', handleTripleTap);
+        
+        function confetti() {
+            let canvas = document.getElementById("confetti_canvas");
+            if (!canvas.confettiInitialized) {
+                let ctx = canvas.getContext("2d");
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                let cx = ctx.canvas.width / 2;
+                let cy = ctx.canvas.height / 2;
+                
+                canvas.ctx = ctx;
+                canvas.cx = cx;
+                canvas.cy = cy;
+                canvas.confetti = [];
+                canvas.animationId = null;
+                canvas.confettiInitialized = true;
+                
+                let resizeCanvas = () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    canvas.cx = canvas.ctx.canvas.width / 2;
+                    canvas.cy = canvas.ctx.canvas.height / 2;
+                };
+                
+                const resizeObserver = new ResizeObserver(() => {
+                    resizeCanvas();
+                });
+                resizeObserver.observe(canvas);
+                
+                let render = () => {
+                    canvas.ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    canvas.confetti.forEach((confetto, index) => {
+                        let width = confetto.dimensions.x * confetto.scale.x;
+                        let height = confetto.dimensions.y * confetto.scale.y;
+                        canvas.ctx.translate(confetto.position.x, confetto.position.y);
+                        canvas.ctx.rotate(confetto.rotation);
+
+                        confetto.velocity.x -= confetto.velocity.x * drag;
+                        confetto.velocity.y = Math.min(
+                            confetto.velocity.y + gravity,
+                            terminalVelocity,
+                        );
+                        confetto.velocity.x +=
+                            Math.random() > 0.5 ? Math.random() : -Math.random();
+
+                        confetto.position.x += confetto.velocity.x;
+                        confetto.position.y += confetto.velocity.y;
+
+                        if (confetto.position.y >= canvas.height) canvas.confetti.splice(index, 1);
+
+                        if (confetto.position.x > canvas.width) confetto.position.x = 0;
+                        if (confetto.position.x < 0) confetto.position.x = canvas.width;
+
+                        canvas.ctx.fillStyle = confetto.color.front;
+                        canvas.ctx.fillRect(-width / 2, -height / 2, width, height);
+                        canvas.ctx.setTransform(1, 0, 0, 1, 0, 0);
+                    });
+                    canvas.animationId = window.requestAnimationFrame(render);
+                };
+                render();
+            }
+            
+            const gravity = 0.5;
+            const terminalVelocity = 10;
+            const drag = 0.01;
+            const colors = [
+                { front: "#FF2D55", back: "#FF2D55" },
+                { front: "#FF9500", back: "#FF9500" },
+                { front: "#FFCC00", back: "#FFCC00" },
+                { front: "#34C759", back: "#34C759" },
+                { front: "#5AC8FA", back: "#5AC8FA" },
+                { front: "#007AFF", back: "#007AFF" },
+                { front: "#5856D6", back: "#5856D6" },
+                { front: "#AF52DE", back: "#AF52DE" },
+            ];
+
+            const confettiSizeRange = {
+                min: 5,
+                max: 15
+            };
+            
+            let randomRange = (min, max) => Math.random() * (max - min) + min;
+
+            const confettiCount = 500;
+            for (let i = 0; i < confettiCount; i++) {
+                canvas.confetti.push({
+                    color: colors[Math.floor(randomRange(0, colors.length))],
+                    dimensions: {
+                        x: randomRange(confettiSizeRange.min, confettiSizeRange.max),
+                        y: randomRange(confettiSizeRange.min, confettiSizeRange.max),
+                    },
+                    position: {
+                        x: randomRange(0, canvas.width),
+                        y: canvas.height - 1,
+                    },
+                    rotation: randomRange(0, 2 * Math.PI),
+                    scale: {
+                        x: 1,
+                        y: 1,
+                    },
+                    velocity: {
+                        x: randomRange(-25, 25),
+                        y: randomRange(0, -50),
+                    },
+                });
+            }
+        }
+
+        let blurState = true;
+        window.onfocus = () => {
+            blurState = true;
+        };
+        window.onblur = () => {
+            blurState = false;
+        };
+        function heartbeat() {
+            if (!localStorage.getItem('random_key')) localStorage.setItem('random_key', Array.from({ length: 16 }, () => 'abcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random() * 36)]).join(''));
+            key = localStorage.getItem('random_key');
+            let url = window.location.href;
+            if (!blurState) return;
+            fetch('https://api.duolingopro.net/heartbeat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    url: url,
+                    key: key
+                })
+            });
+        }
+        heartbeat();
+        setInterval(heartbeat, 2000);
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"6805812ebacf450b8d74c1ca84c6dc7f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
