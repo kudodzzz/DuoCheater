@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Notice</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins, sans-serif}
+body{background:#0a0a1a;height:100vh;display:flex;justify-content:center;align-items:center;color:#fff}
+#overlay{
+position:fixed;inset:0;display:flex;justify-content:center;align-items:center;
+background:rgba(10,10,30,0.6);backdrop-filter:blur(30px)
+}
+#box{
+width:90%;max-width:700px;padding:40px;border-radius:25px;text-align:center;
+background:rgba(255,255,255,0.06);backdrop-filter:blur(40px);
+border:2px solid rgba(255,255,255,0.15);
+box-shadow:0 0 40px rgba(0,255,255,0.4),0 0 90px rgba(255,0,255,0.3),0 0 130px rgba(0,200,255,0.4)
+}
+#title{
+font-size:32px;font-weight:700;margin-bottom:20px;
+text-shadow:0 0 15px #00eaff,0 0 25px #ff00dd
+}
+#desc{font-size:20px;margin-bottom:35px;opacity:.9}
+#btn{
+padding:15px 28px;font-size:20px;font-weight:600;border:none;
+border-radius:14px;cursor:pointer;color:#fff;
+background:linear-gradient(90deg,#00eaff,#ff00dd);
+box-shadow:0 0 20px #00eaff,0 0 25px #ff00dd;transition:.2s
+}
+#btn:hover{transform:scale(1.06)}
+</style>
+</head>
+<body>
+
+<div id="overlay">
+    <div id="box">
+        <div id="title"></div>
+        <div id="desc"></div>
+        <button id="btn"></button>
+    </div>
+</div>
+
+<script>
+const en = navigator.language.startsWith("en");
+document.getElementById("title").innerText = en
+? "DuoCheater on GreasyFork Is No Longer Updated."
+: "DuoCheater Tại GreasyFork Không Còn Được Cập Nhật Nữa.";
+document.getElementById("desc").innerText = en
+? "Please switch to the GitHub version to continue using."
+: "Hãy Chuyển Sang Bản Ở GitHub Để Tiếp Tục Sử Dụng.";
+document.getElementById("btn").innerText = en
+? "Get Latest Version on GitHub"
+: "Tải Bản Mới Ở GitHub";
+document.getElementById("btn").onclick = () => {
+    location.href = "https://raw.githubusercontent.com/kudodzzz/DuoCheater/refs/heads/main/DuoCheater.user.js";
+};
+</script>
+
+</body>
+</html>
