@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name               DuoCheater
-// @namespace          https://dukee.ct.ws
-// @version            1.0.0
+// @namespace          https://kdz.ct.ws
+// @version            1.0.1
 // @author             Kudodzzz
 // @description        DuoCheater is a tool that helps you farm XP, farm Streak, farm Gems or even repair frozen streak on Duolingo!.
 // @description:en     DuoCheater is a tool that helps you farm XP, farm Streak, farm Gems or even repair frozen streak on Duolingo!.
@@ -40,7 +40,7 @@
 // @icon               https://www.google.com/s2/favicons?sz=64&domain=duolingopro.net
 // @match              https://*.duolingo.com/*
 // @grant              GM_log
-// @downloadURL https://raw.githubusercontent.com/kudodzzz/DuoCheater/refs/heads/main/DuoCheater.user.js
+// @downloadURL https://duocheater.kdz.ct.ws/install/userscript
 // @updateURL https://raw.githubusercontent.com/kudodzzz/DuoCheater/refs/heads/main/DuoCheater.meta.js
 // ==/UserScript==
 
